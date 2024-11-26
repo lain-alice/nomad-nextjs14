@@ -12,11 +12,11 @@ export default function Navigation() {
     <nav>
       <ul>
         <li>
-          <Link href="/">Home</Link> {path === "/" ? "now" : ""}
+          <Link href="/">Home</Link> {path === "/" ? "!!" : ""}
         </li>
         <li>
           <Link href="/about-us">About Us</Link>{" "}
-          {path === "/about-us" ? "now" : ""}
+          {path === "/about-us" ? "!!" : ""}
         </li>
         <li>
           <button onClick={() => setCount((c) => c + 1)}>{count}</button>
