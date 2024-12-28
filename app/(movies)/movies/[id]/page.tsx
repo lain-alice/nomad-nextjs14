@@ -21,9 +21,9 @@ export default async function MovieDetail({
 }) {
   // console.log(props); { params: { id: '121212' }, searchParams: { region: 'kr' } }
   // 백엔드에서 실행됐음, 브라우저 콘솔에 안 뜨고 터미널에
+  console.log("============");
   console.log("start fetching");
-  const movie = await getMovie(id);
-  const videos = await getVideos(id);
+  const [movie, videos] = await Promise.all([getMovie(id), getVideos(id)]); // 순차적으로 안 하고 동시에 실행
   console.log("end fetching");
   return <h1>{movie.title}</h1>;
 }
