@@ -2,14 +2,15 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import styles from "../styles/navigation.module.css";
+// 모듈 css 파일을 js 파일인 것처럼
 
 export default function Navigation() {
   const path = usePathname();
-  const [count, setCount] = useState(0);
 
   return (
-    <nav>
+    <nav className={styles.nav}>
+      {/* className 충돌 없음 */}
       <ul>
         <li>
           <Link href="/">Home</Link> {path === "/" ? "!!" : ""}
@@ -17,9 +18,6 @@ export default function Navigation() {
         <li>
           <Link href="/about-us">About Us</Link>{" "}
           {path === "/about-us" ? "!!" : ""}
-        </li>
-        <li>
-          <button onClick={() => setCount((c) => c + 1)}>{count}</button>
         </li>
       </ul>
     </nav>
